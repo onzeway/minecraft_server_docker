@@ -1,0 +1,30 @@
+#!/bin/bash
+
+shutdown() {
+    /usr/local/bin/msm $SERVER_NAME stop now
+    sleep 1
+    exit
+}
+
+/usr/local/bin/msm update --noinput
+
+/bin/chown -R minecraft /opt/msm/servers
+
+/usr/local/bin/msm jargroup create minecraft minecraft
+
+/usr/local/bin/msm server create $SERVER_NAME
+/usr/local/bin/msm $SERVER_NAME jar minecraft
+
+echo "msm-version=minecraft/$MSM_VERSION" > /opt/msm/servers/$SERVER_NAME/server.properties
+
+/usr/local/bin/msm $SERVER_NAME start &
+
+trap shutdown SIGTERM SIGHUP SIGINT
+
+wait
+
+/usr/bin/tail -f /opt/msm/servers/$SERVER_NAME/logs/latest.log &
+
+wait
+
+exit
