@@ -33,4 +33,4 @@ VOLUME ["/opt/msm/servers"]
 
 CMD ["/usr/local/initscript"]
 
-# docker run -d --name=minecraft --restart=unless-stopped -v $PWD/servers:/opt/msm/servers -e SERVER_NAME="minecraft" -e MSM_VERSION="1.7.0" onzeway/minecraft_server_docker:latest
+# docker run -d --name=minecraft --restart=unless-stopped -v $PWD/servers:/opt/msm/servers -p 25565:25565 -e SERVER_NAME="minecraft" -e MSM_VERSION="1.7.0" onzeway/minecraft_server_docker:latest
