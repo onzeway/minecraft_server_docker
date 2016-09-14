@@ -1,6 +1,9 @@
 # Minecraft Server Docker
 Minecraft Server Docker image based on Minecraft Server Manager
 
+[![](https://images.microbadger.com/badges/image/onzeway/minecraft_server_docker.svg)](http://microbadger.com/images/onzeway/minecraft_server_docker "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/onzeway/minecraft_server_docker.svg)](http://microbadger.com/images/onzeway/minecraft_server_docker "Get your own version badge on microbadger.com")
+
 ## Description
 Based on MSM HQ team work : http://msmhq.com/
 This container exposes its 25565 TCP/port to allow minecraft client connection.
